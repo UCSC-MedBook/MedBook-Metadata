@@ -1,6 +1,6 @@
 Package.describe({
   name: 'medbook:metadata',
-  version: '0.0.1',
+  version: '0.0.2',
   summary: 'metadata used by CRF and Fusion',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/UCSC-MedBook/MedBook-Metadata.git',
@@ -11,10 +11,10 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.addFiles('server/collections.js', 'client');
-  api.addFiles('server/dashboard.js', 'client');
-  api.addFiles('server/metadata.js', 'client');
-  api.addFiles('server/methods.js', 'client');
+  api.addFiles('server/collections.js', 'server');
+  api.addFiles('server/dashboard.js', 'server');
+  api.addFiles('server/metadata.js', 'server');
+  api.addFiles('server/methods.js', 'server');
 });
 
 Package.onTest(function(api) {
