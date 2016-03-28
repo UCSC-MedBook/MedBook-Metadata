@@ -1,22 +1,22 @@
 Meteor.methods({
     dashboard: function(studyId) {
 	if (this.userId == null)
-	   throw new Error("must be logged in");
+	   throw new Meteor.Error("must be logged in");
 	var user = Meteor.users.findOne({_id: this.userId}, {fields: { "profile.collaborations": 1}});
 	if (user == null)
-	   throw new Error("user not found");
+	   throw new Meteor.Error("user not found");
 
 	console.log("user.profile", user.profile);
 
 	if (user.profile.collaborations == null) 
-	   throw new Error("Please join collaborations");
+	   throw new Meteor.Error("Please join collaborations");
 
 
 	if (studyId == null)
-	   throw new Error("need a valid study");
+	   throw new Meteor.Error("need a valid study");
 	var study = Collections.studies.findOne({id: studyId});
 	if (studyId == null)
-	   throw new Error("study id not found");
+	   throw new Meteor.Error("study id not found");
 
 	console.log("user.profile.collaborations", user.profile.collaborations);
 	user.profile.collaborations.push("public");
@@ -24,7 +24,7 @@ Meteor.methods({
 	var target = _.intersection(study.collaborations, user.profile.collaborations);
 	console.log("dashboard", target);
 	if (target.length == 0)
-	   throw new Error("User not allowed to access this study");
+	   throw new Meteor.Error("User not allowed to access this study");
 
 	var Sample_IDs  = study.Sample_IDs;
 	var Patient_IDs = study.Patient_IDs;

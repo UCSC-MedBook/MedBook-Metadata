@@ -1,6 +1,6 @@
 Package.describe({
   name: 'medbook:metadata',
-  version: '0.0.2',
+  version: '0.0.3',
   summary: 'metadata used by CRF and Fusion',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/UCSC-MedBook/MedBook-Metadata.git',
