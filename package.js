@@ -11,10 +11,14 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.addFiles('server/collections.js', 'server');
-  api.addFiles('server/dashboard.js', 'server');
-  api.addFiles('server/metadata.js', 'server');
-  api.addFiles('server/methods.js', 'server');
+  api.use([
+    "medbook:primary-collections@0.0.17",
+    "medbook:collaborations@2.4.11",
+  ]);
+
+  api.addFiles("server/dashboard.js", "server");
+  api.addFiles("server/publications.js", "server");
+  api.addFiles("server/methods.js", "server");
 });
 
 Package.onTest(function(api) {
